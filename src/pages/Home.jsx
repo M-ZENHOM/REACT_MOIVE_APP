@@ -29,7 +29,7 @@ export const Home = () => {
       <Slider moives={moives} />
       <HomeHeading txt="MOVIES ON AIR  ⮞" btn="View more »" where="allmovies" />
       <CardContainer>
-        {filterMovies.map((moive) => (
+        {filterMovies?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>
@@ -39,7 +39,7 @@ export const Home = () => {
         where="tvseries"
       />
       <CardContainer>
-        {filterTvSeries.map((moive) => (
+        {filterTvSeries?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>
@@ -49,7 +49,7 @@ export const Home = () => {
         where="allmovies"
       />
       <CardContainer>
-        {filterTopRated.map((moive) => (
+        {filterTopRated?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>
