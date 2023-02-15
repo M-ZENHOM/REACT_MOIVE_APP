@@ -163,5 +163,4 @@ const moiveSlice = createSlice({
   },
 });
 
-// export const {} = moiveSlice.actions;
 export default moiveSlice.reducer;

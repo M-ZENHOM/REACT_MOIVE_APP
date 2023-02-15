@@ -71,12 +71,12 @@ const Footer = () => {
       <Section>
         <Title>REACT MOIVE</Title>
         <Txt>Cinemy Movies and Tv Series</Txt>
-        <Txt>Nakuru, Kenya</Txt>
-        <Txt>call Us: (+254) 78728340</Txt>
+        <Txt>Egypt, Cairo</Txt>
+        <Txt>call Us: (+10) 0000-001</Txt>
       </Section>
       <Section>
         <Title>Resources</Title>
-        <FootLink to="/">About CinemyPlex</FootLink>
+        <FootLink to="/">About ReactMovies</FootLink>
         <FootLink to="/">Contact Us</FootLink>
         <FootLink to="/">Forums</FootLink>
         <FootLink to="/">Blog</FootLink>
@@ -89,7 +89,7 @@ const Footer = () => {
         <FootLink to="/">Security</FootLink>
       </Section>
       <Section>
-        <Title>Security</Title>
+        <Title>Newsletter</Title>
         <Txt>
           Subscribe to our newsletter system now to get latest news from us
         </Txt>

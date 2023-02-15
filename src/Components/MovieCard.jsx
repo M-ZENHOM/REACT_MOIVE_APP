@@ -2,10 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { Card, Postar, Title, Vote } from "../Styles/CardStyle";
 
 const MovieCard = ({ title, vote_average, id, poster_path }) => {
-  const naigate = useNavigate();
+  const navigate = useNavigate();
   const ClickHandler = (id) => {
     window.scroll(0, 0);
-    naigate(`/moive/${id}`);
+    navigate(`/moive/${id}`);
   };
   return (
     <Card onClick={() => ClickHandler(id)} key={id}>
@@ -29,7 +29,7 @@ const MovieCard = ({ title, vote_average, id, poster_path }) => {
             ? `${process.env.REACT_APP_POSTAR_IMG}${poster_path}`
             : process.env.REACT_APP_UNAVAILABLE_IMG
         }
-        alt=""
+        alt="Moive Poster"
       />
     </Card>
   );
