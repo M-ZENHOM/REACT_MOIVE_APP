@@ -17,7 +17,7 @@ export const Home = () => {
   const defaultPage = 1;
   const filterTvSeries = TvSeries?.slice(0, 6);
   const filterTopRated = TopRated?.slice(0, 6);
-  const filterMovies = moives.slice(0, 6);
+  const filterMovies = moives?.slice(0, 6);
   useEffect(() => {
     dispatch(fetchMoives(defaultPage));
     dispatch(fetchTrendingMoives());
