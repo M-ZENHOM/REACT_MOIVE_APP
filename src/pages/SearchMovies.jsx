@@ -9,7 +9,7 @@ const SearchMovies = () => {
     <>
       <HomeHeading txt="Your search moive is here" btn="" />
       <CardContainer>
-        {SearchMoives.map((moive) => (
+        {SearchMoives?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>

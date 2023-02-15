@@ -14,7 +14,7 @@ const Trending = () => {
     <>
       <HomeHeading txt="TRENDING" btn="" />
       <CardContainer>
-        {Moives.map((moive) => (
+        {Moives?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>
