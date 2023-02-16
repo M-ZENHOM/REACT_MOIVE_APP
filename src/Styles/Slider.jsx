@@ -36,14 +36,17 @@ export const TxtCon = styled.div`
 export const Txt = styled.p`
   width: 700px;
   color: #fff;
-
   @media (max-width: 640px) {
     width: auto;
     font-size: 14px;
+    padding-right: 20px;
   }
 `;
 export const TxtTitle = styled.h1`
   color: #fff;
   font-weight: bold;
   font-size: 40px;
+  @media (max-width: 640px) {
+    font-size: 24px;
+  }
 `;

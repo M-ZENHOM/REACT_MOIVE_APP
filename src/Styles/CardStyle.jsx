@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   position: relative;
-  width: 200px;
   transition: 0.5s;
   cursor: pointer;
   margin-bottom: 30px;
@@ -20,11 +19,15 @@ export const Card = styled.div`
     text-transform: uppercase;
     transition: 0.5s;
     line-height: 300px;
+    @media (max-width: 640px) {
+      line-height: 450px;
+    }
   }
   &:hover::before {
     font-size: 30px;
     content: "▶";
     width: 100%;
+    height: 100%;
     transition: 0.5s;
   }
 `;
@@ -39,8 +42,12 @@ export const CardContainer = styled.div`
 `;
 
 export const Postar = styled.img`
-  max-width: 100%;
+  width: 200px;
   object-fit: contain;
+  @media (max-width: 640px) {
+    width: 300px;
+    margin: 0 auto;
+  }
 `;
 
 export const Title = styled.h2`
