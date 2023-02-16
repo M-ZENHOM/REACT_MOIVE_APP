@@ -6,7 +6,7 @@ export const fetchMoives = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.local.REACT_APP_API_KEY}&page=${page}&language=en-US&vote_count.gte=10`
+        `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${process.env.REACT_APP_API_KEY}&page=${page}&language=en-US&vote_count.gte=10`
       );
       const data = await res.json();
       return data.results;
@@ -21,7 +21,7 @@ export const fetchMoivebyID = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.local.REACT_APP_API_KEY}`
+        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const data = await res.json();
       return data;
@@ -36,7 +36,7 @@ export const fetchSimilarMoives = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.local.REACT_APP_API_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/${id}/similar?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       );
       const data = await res.json();
       const filter = data.results.slice(0, 6);
@@ -52,7 +52,7 @@ export const fetchMoiveCast = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `   https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.local.REACT_APP_API_KEY}&language=en-US`
+        `   https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
       );
       const data = await res.json();
       return data;
@@ -67,7 +67,7 @@ export const fetchTrendingMoives = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.local.REACT_APP_API_KEY}`
+        `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}`
       );
       const data = await res.json();
       return data.results;
@@ -82,7 +82,7 @@ export const fetchTvOnAir = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.local.REACT_APP_API_KEY}&language=en-US&page=${page}`
+        `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=${page}`
       );
       const data = await res.json();
       return data.results;
@@ -97,7 +97,7 @@ export const fetchTopRated = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.local.REACT_APP_API_KEY}&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`
       );
       const data = await res.json();
       return data.results;
@@ -112,7 +112,7 @@ export const fetchSearch = createAsyncThunk(
     const { rejectWithValue } = thunkAPI;
     try {
       const res = await fetch(
-        `https://api.themoviedb.org/3/search/multi?api_key=${process.env.local.REACT_APP_API_KEY}&language=en-US&query=${value}&page=1&include_adult=false`
+        `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${value}&page=1&include_adult=false`
       );
       const data = await res.json();
       return data.results;

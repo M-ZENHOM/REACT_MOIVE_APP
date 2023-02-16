@@ -25,7 +25,7 @@ export const Slider = ({ moives }) => {
         <SwiperSlide key={movie.id}>
           <Postar
             style={{
-              backgroundImage: `url(${process.env.local.REACT_APP_BG_IMG}${movie.backdrop_path})`,
+              backgroundImage: `url(${process.env.REACT_APP_BG_IMG}${movie.backdrop_path})`,
             }}
           ></Postar>
           <TxtCon>
