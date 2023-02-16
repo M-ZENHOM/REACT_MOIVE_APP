@@ -16,15 +16,15 @@ const MoiveDetails = ({ singalMoive }) => {
     <>
       <Header
         style={{
-          backgroundImage: `url( ${process.env.REACT_APP_BG_IMG}${singalMoive.backdrop_path})`,
+          backgroundImage: `url( ${process.env.local.REACT_APP_BG_IMG}${singalMoive.backdrop_path})`,
         }}
       />
       <Container>
         <MoivePostar
           src={
             singalMoive.poster_path
-              ? `${process.env.REACT_APP_POSTAR_IMG_TWO}${singalMoive.poster_path}`
-              : `${process.env.REACT_APP_UNAVAILABLE_IMG}`
+              ? `${process.env.local.REACT_APP_POSTAR_IMG_TWO}${singalMoive.poster_path}`
+              : `${process.env.local.REACT_APP_UNAVAILABLE_IMG}`
           }
         />
         <TextContainer>

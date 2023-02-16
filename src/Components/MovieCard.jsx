@@ -26,8 +26,8 @@ const MovieCard = ({ title, vote_average, id, poster_path }) => {
       <Postar
         src={
           poster_path
-            ? `${process.env.REACT_APP_POSTAR_IMG}${poster_path}`
-            : process.env.REACT_APP_UNAVAILABLE_IMG
+            ? `${process.env.local.REACT_APP_POSTAR_IMG}${poster_path}`
+            : process.env.local.REACT_APP_UNAVAILABLE_IMG
         }
         alt="Moive Poster"
       />
