@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerImg from "../assets/imgs/footer-bg.jpg";
@@ -66,37 +67,42 @@ const Btn = styled.button`
 `;
 
 const Footer = () => {
+  const { name } = useSelector((state) => state.user);
   return (
-    <FooterCon>
-      <Section>
-        <Title>REACT MOIVE</Title>
-        <Txt>Cinemy Movies and Tv Series</Txt>
-        <Txt>Egypt, Cairo</Txt>
-        <Txt>call Us: (+10) 0000-001</Txt>
-      </Section>
-      <Section>
-        <Title>Resources</Title>
-        <FootLink to="/">About ReactMovies</FootLink>
-        <FootLink to="/">Contact Us</FootLink>
-        <FootLink to="/">Forums</FootLink>
-        <FootLink to="/">Blog</FootLink>
-        <FootLink to="/">Help Center</FootLink>
-      </Section>
-      <Section>
-        <Title>Legal</Title>
-        <FootLink to="/">Terms of Use</FootLink>
-        <FootLink to="/">Privacy Policy</FootLink>
-        <FootLink to="/">Security</FootLink>
-      </Section>
-      <Section>
-        <Title>Newsletter</Title>
-        <Txt>
-          Subscribe to our newsletter system now to get latest news from us
-        </Txt>
-        <Input type="text" placeholder="Enter your email" />
-        <Btn>SUBSCRIBE NOW</Btn>
-      </Section>
-    </FooterCon>
+    <>
+      {name && (
+        <FooterCon>
+          <Section>
+            <Title>REACT MOIVE</Title>
+            <Txt>Cinemy Movies and Tv Series</Txt>
+            <Txt>Egypt, Cairo</Txt>
+            <Txt>call Us: (+10) 0000-001</Txt>
+          </Section>
+          <Section>
+            <Title>Resources</Title>
+            <FootLink to="/">About ReactMovies</FootLink>
+            <FootLink to="/">Contact Us</FootLink>
+            <FootLink to="/">Forums</FootLink>
+            <FootLink to="/">Blog</FootLink>
+            <FootLink to="/">Help Center</FootLink>
+          </Section>
+          <Section>
+            <Title>Legal</Title>
+            <FootLink to="/">Terms of Use</FootLink>
+            <FootLink to="/">Privacy Policy</FootLink>
+            <FootLink to="/">Security</FootLink>
+          </Section>
+          <Section>
+            <Title>Newsletter</Title>
+            <Txt>
+              Subscribe to our newsletter system now to get latest news from us
+            </Txt>
+            <Input type="text" placeholder="Enter your email" />
+            <Btn>SUBSCRIBE NOW</Btn>
+          </Section>
+        </FooterCon>
+      )}
+    </>
   );
 };
 

@@ -11,6 +11,7 @@ import { Moive } from "./pages/Moive";
 import TvSeries from "./pages/TvSeries";
 import AllMoives from "./pages/AllMoives";
 import SearchMovies from "./pages/SearchMovies";
+import Index from "./pages/Index";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
+        element: <Index />,
+      },
+      {
+        path: "home",
         element: <Home />,
       },
       {

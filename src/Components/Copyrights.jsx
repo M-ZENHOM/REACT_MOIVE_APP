@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const CopyrightsCon = styled.div`
@@ -13,11 +14,16 @@ const Zenhom = styled.a`
 `;
 
 const Copyrights = () => {
+  const { name } = useSelector((state) => state.user);
   return (
-    <CopyrightsCon>
-      © 2023 React Moive. All Rights Reserved. Designed by
-      <Zenhom href="https://mahmoud-zenhom.cf/">Mahmoud Zenhom.</Zenhom>
-    </CopyrightsCon>
+    <>
+      {name && (
+        <CopyrightsCon>
+          © 2023 React Moive. All Rights Reserved. Designed by
+          <Zenhom href="https://mahmoud-zenhom.cf/">Mahmoud Zenhom.</Zenhom>
+        </CopyrightsCon>
+      )}
+    </>
   );
 };
 

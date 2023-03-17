@@ -13,6 +13,7 @@ export const NavLogo = styled(Link)`
     color: #fff;
   }
 `;
+
 export const NLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
@@ -32,13 +33,50 @@ export const SearchInput = styled.input`
   padding: 5px;
   outline: none;
   border-radius: 6px;
-  margin-right: 10px;
+  margin: 0 auto;
   @media (max-width: 640px) {
     width: 250px;
   }
 `;
 export const SearchForm = styled(Form)`
-  @media (max-width: 640px) {
-    margin-top: 20px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  @media (max-width: 1200px) {
+    margin: 20px auto;
   }
+  @media (max-width: 640px) {
+    width: 320px;
+  }
+`;
+export const ImgContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+`;
+
+export const SignOutBtn = styled.button`
+  outline: none;
+  border: none;
+  padding: 5px 10px;
+  background-color: ${(props) => props.color};
+  transition: 0.8s;
+  color: white;
+  border-radius: 6px;
+  &:hover {
+    background-color: ${(props) => props.Hovercolor};
+    transition: 0.8s;
+  }
+`;
+export const UserImg = styled.img`
+  width: 50px;
+  height: 50px;
+  transition: 0.8s;
+  color: white;
+  border-radius: 50%;
+  margin-right: 20px;
+  cursor: pointer;
 `;
