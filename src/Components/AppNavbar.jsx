@@ -1,4 +1,4 @@
-import { NLink, SearchInput, Wrapper } from "../Styles/Navbar";
+import { NLink, Wrapper } from "../Styles/Navbar";
 import { useDispatch } from "react-redux";
 import { useState, useTransition } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
