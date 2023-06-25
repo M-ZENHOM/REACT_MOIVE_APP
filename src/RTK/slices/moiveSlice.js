@@ -122,6 +122,7 @@ export const fetchSearch = createAsyncThunk(
   }
 );
 const initialState = {
+  loading: false,
   moives: [],
   singalMoive: [],
   similarMoives: [],
@@ -136,29 +137,65 @@ const moiveSlice = createSlice({
   name: "moiveSlice",
   reducers: {},
   extraReducers: (builder) => {
+    // all movies
+    builder.addCase(fetchMoives.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchMoives.fulfilled, (state, action) => {
       state.moives = action.payload;
+      state.loading = false;
+    });
+    // single movie
+    builder.addCase(fetchMoivebyID.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchMoivebyID.fulfilled, (state, action) => {
       state.singalMoive = action.payload;
+      state.loading = false;
     });
+    // similar movies
     builder.addCase(fetchSimilarMoives.fulfilled, (state, action) => {
       state.similarMoives = action.payload;
     });
+    // Cast for moive
+    builder.addCase(fetchMoiveCast.pending, (state, action) => {
+      state.loading = true;
+    });
     builder.addCase(fetchMoiveCast.fulfilled, (state, action) => {
       state.moiveCast = action.payload;
+      state.loading = false;
+    });
+    // trending moives
+    builder.addCase(fetchTrendingMoives.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchTrendingMoives.fulfilled, (state, action) => {
       state.trendingMoives = action.payload;
+      state.loading = false;
+    });
+    // onair moive
+    builder.addCase(fetchTvOnAir.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchTvOnAir.fulfilled, (state, action) => {
       state.TvSeries = action.payload;
+      state.loading = false;
+    });
+    // toprated moive
+    builder.addCase(fetchTopRated.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchTopRated.fulfilled, (state, action) => {
       state.TopRated = action.payload;
+      state.loading = false;
+    });
+    // search moive
+    builder.addCase(fetchSearch.pending, (state, action) => {
+      state.loading = true;
     });
     builder.addCase(fetchSearch.fulfilled, (state, action) => {
       state.SearchMoives = action.payload;
+      state.loading = false;
     });
   },
 });
