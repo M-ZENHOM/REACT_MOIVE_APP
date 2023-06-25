@@ -6,7 +6,6 @@ import { useDebounce } from "../hooks/use-debounce";
 import { siteConfig } from "../config/site";
 import { fetchSearch } from "../store/slices/moiveSlice";
 import styled from "styled-components";
-import { Wrapper } from "../Styles/IndexStyle";
 
 const AppNavbar = () => {
   const dispatch = useDispatch();
@@ -51,6 +50,17 @@ const AppNavbar = () => {
   );
 };
 
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+`;
+
 const Nav = styled.nav`
   display: flex;
   justify-content: space-evenly;
@@ -58,6 +68,7 @@ const Nav = styled.nav`
   background-color: #1a1a42;
   padding: 8px 0;
   @media screen and (max-width: 768px) {
+    justify-content: center;
     flex-direction: column;
     padding: 12px 0;
   }
@@ -68,13 +79,18 @@ const Logo = styled(Link)`
 `;
 const Links = styled.div`
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    margin: 5px 0;
+  }
 `;
 
 const SearchInput = styled.input`
   background-color: #fff;
   color: white;
   padding: 5px;
-  width: 200px;
+  width: 300px;
   border: none;
   outline: none;
   transition: 0.5s;
