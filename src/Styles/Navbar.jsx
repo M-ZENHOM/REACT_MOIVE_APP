@@ -29,6 +29,7 @@ export const NLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+  margin-left: 4px;
   color: #fff;
   &:hover {
     color: #fff;

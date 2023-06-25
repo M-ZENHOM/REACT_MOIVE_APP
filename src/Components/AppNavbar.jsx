@@ -65,14 +65,14 @@ const Wrapper = styled.div`
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   background-color: #1a1a42;
   padding: 8px 0;
   @media screen and (max-width: 768px) {
     justify-content: center;
     flex-direction: column;
-    padding: 12px 0;
+    padding: 14px 0;
   }
 `;
 const Logo = styled(Link)`
