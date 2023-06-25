@@ -5,18 +5,20 @@ import { CardContainer } from "../Styles/CardStyle";
 const CardSkelaton = () => {
   return (
     <CardContainer>
-      {[1, 2, 3, 4, 5, 6, 7, 9, 10].map((s, i) => (
-        <Skelation key={i}>
-          <Image />
-          <Content>
-            <Container>
-              <Text />
-              <SubText />
-            </Container>
-            <Btn />
-          </Content>
-        </Skelation>
-      ))}
+      {[1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20].map(
+        (s, i) => (
+          <Skelation key={i}>
+            <Image />
+            <Content>
+              <Container>
+                <Text />
+                <SubText />
+              </Container>
+              <Btn />
+            </Content>
+          </Skelation>
+        )
+      )}
     </CardContainer>
   );
 };
@@ -38,7 +40,8 @@ const shineLoadingContainer = keyframes`
   }
 `;
 const Skelation = styled.div`
-  height: 252px;
+  width: 260px;
+  height: 260px;
   border-radius: 4px;
   overflow: hidden;
   margin-bottom: 15px;
