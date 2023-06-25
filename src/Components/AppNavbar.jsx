@@ -1,11 +1,12 @@
-import { NLink, Wrapper } from "../Styles/Navbar";
+import { NLink } from "../Styles/Navbar";
 import { useDispatch } from "react-redux";
 import { useState, useTransition } from "react";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { Link, createSearchParams, useNavigate } from "react-router-dom";
 import { useDebounce } from "../hooks/use-debounce";
 import { siteConfig } from "../config/site";
 import { fetchSearch } from "../store/slices/moiveSlice";
 import styled from "styled-components";
+import { Wrapper } from "../Styles/IndexStyle";
 
 const AppNavbar = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const AppNavbar = () => {
   return (
     <Nav>
       <Wrapper>
-        <Logo> {siteConfig.name}</Logo>
+        <Logo to="/"> {siteConfig.name}</Logo>
         <Links>
           {siteConfig.mainNav.map((nav) => (
             <NLink className="nav-link" to={nav.href} disabled>
@@ -55,12 +56,13 @@ const Nav = styled.nav`
   justify-content: space-evenly;
   align-items: center;
   background-color: #1a1a42;
+  padding: 8px 0;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     padding: 12px 0;
   }
 `;
-const Logo = styled.div`
+const Logo = styled(Link)`
   font-size: 24px;
   color: #fff;
 `;
