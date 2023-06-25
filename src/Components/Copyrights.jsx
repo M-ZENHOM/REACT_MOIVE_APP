@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { siteConfig } from "../config/site";
 
 const Copyrights = () => {
   return (
     <CopyrightsCon>
       <Wrapper>
-        © 2023 React Moive. All Rights Reserved. Designed by
-        <Zenhom href="https://mahmoud-zenhom.cf/">Mahmoud Zenhom.</Zenhom>
+        {siteConfig.copyrights.desc}
+        <Zenhom href={siteConfig.copyrights.href}>
+          {siteConfig.copyrights.name}
+        </Zenhom>
       </Wrapper>
     </CopyrightsCon>
   );

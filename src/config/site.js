@@ -19,4 +19,9 @@ export const siteConfig = {
     twitter: "https://twitter.com/MAD_ZENHOM",
     github: "https://github.com/M-ZENHOM",
   },
+  copyrights: {
+    desc: " © 2023 React Moive. All Rights Reserved. Designed by",
+    name: "Mahmoud M Zenhom",
+    href: "https://mahmoud-zenhom.cf/",
+  },
 };
