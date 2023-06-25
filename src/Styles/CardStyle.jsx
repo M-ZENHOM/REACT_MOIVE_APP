@@ -1,3 +1,4 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -41,7 +42,7 @@ export const CardContainer = styled.div`
   border-bottom: 1px solid #ffffff3b;
 `;
 
-export const Postar = styled.img`
+export const Postar = styled(LazyLoadImage)`
   width: 200px;
   object-fit: contain;
   @media (max-width: 640px) {

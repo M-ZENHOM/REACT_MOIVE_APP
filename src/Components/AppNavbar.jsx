@@ -55,6 +55,8 @@ const Wrapper = styled.div`
   max-width: 1360px;
   margin: 0 auto;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   @media screen and (max-width: 768px) {
     justify-content: center;
     flex-direction: column;
@@ -76,27 +78,34 @@ const Nav = styled.nav`
 const Logo = styled(Link)`
   font-size: 24px;
   color: #fff;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 const Links = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   @media screen and (max-width: 768px) {
-    margin: 5px 0;
+    margin: 6px 0;
   }
 `;
 
 const SearchInput = styled.input`
   background-color: #fff;
-  color: white;
   padding: 5px;
   width: 300px;
   border: none;
   outline: none;
   transition: 0.5s;
+  border-radius: 6px;
   &:hover,
   &:focus {
-    border: 1px solid blue;
+    border: 2px solid blue;
+  }
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin: 0 auto;
   }
 `;
 

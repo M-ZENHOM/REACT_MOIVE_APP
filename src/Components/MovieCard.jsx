@@ -25,6 +25,7 @@ const MovieCard = ({ title, vote_average, id, poster_path }) => {
         }
         alt="Moive Poster"
         loading="lazy"
+        effect="blur"
       />
     </Card>
   );
