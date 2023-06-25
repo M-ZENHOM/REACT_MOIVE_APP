@@ -40,7 +40,7 @@ const shineLoadingContainer = keyframes`
   }
 `;
 const Skelation = styled.div`
-  width: 260px;
+  width: 220px;
   height: 260px;
   border-radius: 4px;
   overflow: hidden;
