@@ -5,9 +5,11 @@ import { CardContainer } from "../Styles/CardStyle";
 
 const SearchMovies = () => {
   const { SearchMoives } = useSelector((state) => state.moives);
+
   return (
     <>
       <HomeHeading txt="Your search moive is here" btn="" />
+      {!SearchMoives && <h2>Loading...</h2>}
       <CardContainer>
         {SearchMoives?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />

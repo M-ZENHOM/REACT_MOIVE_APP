@@ -24,6 +24,7 @@ const MovieCard = ({ title, vote_average, id, poster_path }) => {
             : process.env.REACT_APP_UNAVAILABLE_IMG
         }
         alt="Moive Poster"
+        loading="lazy"
       />
     </Card>
   );
