@@ -2,16 +2,17 @@ import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper";
-import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
-import { Postar, SwiperCon, Txt, TxtCon, TxtTitle } from "../Styles/Slider";
+import { Link } from "react-router-dom";
+import {
+  Postar,
+  SliderBtn,
+  SwiperCon,
+  Txt,
+  TxtCon,
+  TxtTitle,
+} from "../Styles/Slider";
 
 export const Slider = ({ moives }) => {
-  const navigate = useNavigate();
-  const ClickHandler = (id) => {
-    window.scroll(0, 0);
-    navigate(`/moive/${id}`);
-  };
   return (
     <SwiperCon
       modules={[Autoplay]}
@@ -27,13 +28,11 @@ export const Slider = ({ moives }) => {
             style={{
               backgroundImage: `url(${process.env.REACT_APP_BG_IMG}${movie.backdrop_path})`,
             }}
-          ></Postar>
+          />
           <TxtCon>
             <TxtTitle>{movie.title}</TxtTitle>
             <Txt>{movie.overview}</Txt>
-            <Button variant="contained" onClick={() => ClickHandler(movie.id)}>
-              READ MORE
-            </Button>
+            <SliderBtn to={`/moive/${movie.id}`}>READ MORE</SliderBtn>
           </TxtCon>
         </SwiperSlide>
       ))}

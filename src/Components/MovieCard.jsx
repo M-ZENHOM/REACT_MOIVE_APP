@@ -1,14 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { Card, Postar, Title, Vote } from "../Styles/CardStyle";
 
 const MovieCard = ({ title, vote_average, id, poster_path }) => {
-  const navigate = useNavigate();
-  const ClickHandler = (id) => {
-    window.scroll(0, 0);
-    navigate(`/moive/${id}`);
-  };
   return (
-    <Card onClick={() => ClickHandler(id)} key={id}>
+    <Card to={`/moive/${id}`} key={id}>
       <Title>{title}</Title>
       <Vote
         voteColor={

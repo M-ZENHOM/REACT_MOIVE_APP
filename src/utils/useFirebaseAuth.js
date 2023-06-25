@@ -1,5 +1,4 @@
-import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
-import { useEffect } from "react";
+import { signInWithPopup, signOut } from "firebase/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { auth, googleProvider, facebookProvider } from "../firebase";
@@ -10,17 +9,17 @@ const useFirebaseAuth = () => {
   const navigate = useNavigate();
   const { name, photo } = useSelector((state) => state.user);
 
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser(user);
-        navigate("/home");
-      } else {
-        dispatch(userLogout());
-        navigate("/");
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       setUser(user);
+  //       navigate("/home");
+  //     } else {
+  //       dispatch(userLogout());
+  //       navigate("/");
+  //     }
+  //   });
+  // }, []);
 
   const GoogleAuthHandler = () => {
     !name

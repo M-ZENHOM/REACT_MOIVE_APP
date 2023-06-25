@@ -1,8 +1,54 @@
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import footerImg from "../assets/imgs/footer-bg.jpg";
+import { FooterData } from "../config/FooterData";
 
+const Footer = () => {
+  const { Main, Resources, Legal, Newsletter } = FooterData;
+  return (
+    <FooterCon>
+      <Wrapper>
+        <Section>
+          <Title>{Main[0].title}</Title>
+          {Main[0].labels.map((l, i) => (
+            <Txt key={i}>{l}</Txt>
+          ))}
+        </Section>
+        <Section>
+          <Title>{Resources[0].title}</Title>
+          {Resources[0].labels.map((l, i) => (
+            <FootLink key={i} to="/">
+              {l}
+            </FootLink>
+          ))}
+        </Section>
+        <Section>
+          <Title>{Legal[0].title}</Title>
+          {Legal[0].labels.map((l, i) => (
+            <FootLink key={i} to="/">
+              {l}
+            </FootLink>
+          ))}
+        </Section>
+        <Section>
+          <Title>{Newsletter[0].title}</Title>
+          <Txt>{Newsletter[0].desc}</Txt>
+          <Input type="text" placeholder="Enter your email" />
+          <Btn>SUBSCRIBE NOW</Btn>
+        </Section>
+      </Wrapper>
+    </FooterCon>
+  );
+};
+const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 const FooterCon = styled.footer`
   display: flex;
   justify-content: space-around;
@@ -65,45 +111,5 @@ const Btn = styled.button`
   font-size: 16px;
   margin-left: 5px;
 `;
-
-const Footer = () => {
-  const { name } = useSelector((state) => state.user);
-  return (
-    <>
-      {name && (
-        <FooterCon>
-          <Section>
-            <Title>REACT MOIVE</Title>
-            <Txt>Cinemy Movies and Tv Series</Txt>
-            <Txt>Egypt, Cairo</Txt>
-            <Txt>call Us: (+10) 0000-001</Txt>
-          </Section>
-          <Section>
-            <Title>Resources</Title>
-            <FootLink to="/">About ReactMovies</FootLink>
-            <FootLink to="/">Contact Us</FootLink>
-            <FootLink to="/">Forums</FootLink>
-            <FootLink to="/">Blog</FootLink>
-            <FootLink to="/">Help Center</FootLink>
-          </Section>
-          <Section>
-            <Title>Legal</Title>
-            <FootLink to="/">Terms of Use</FootLink>
-            <FootLink to="/">Privacy Policy</FootLink>
-            <FootLink to="/">Security</FootLink>
-          </Section>
-          <Section>
-            <Title>Newsletter</Title>
-            <Txt>
-              Subscribe to our newsletter system now to get latest news from us
-            </Txt>
-            <Input type="text" placeholder="Enter your email" />
-            <Btn>SUBSCRIBE NOW</Btn>
-          </Section>
-        </FooterCon>
-      )}
-    </>
-  );
-};
 
 export default Footer;

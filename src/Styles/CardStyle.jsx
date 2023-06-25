@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   position: relative;
   transition: 0.5s;
   cursor: pointer;
@@ -35,7 +35,7 @@ export const Card = styled.div`
 export const CardContainer = styled.div`
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   place-content: center;
   place-items: center;
   border-bottom: 1px solid #ffffff3b;

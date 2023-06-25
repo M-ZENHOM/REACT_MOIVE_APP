@@ -2,6 +2,17 @@ import { Link, NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Form from "react-bootstrap/Form";
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    padding: 4px 10px;
+  }
+`;
 export const NavLogo = styled(Link)`
   text-decoration: none;
   font-size: 20px;

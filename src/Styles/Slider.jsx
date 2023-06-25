@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Swiper } from "swiper/react";
 
@@ -15,19 +16,20 @@ export const Postar = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  z-index: 1;
   &::before {
     content: "";
     position: absolute;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #0000004c;
+    background-color: #00000068;
   }
 `;
 export const TxtCon = styled.div`
   position: absolute;
-  bottom: 50px;
-  left: 80px;
+  bottom: 80px;
+  left: 280px;
   z-index: 2;
   @media (max-width: 640px) {
     left: 50px;
@@ -48,5 +50,16 @@ export const TxtTitle = styled.h1`
   font-size: 40px;
   @media (max-width: 640px) {
     font-size: 24px;
+  }
+`;
+export const SliderBtn = styled(Link)`
+  color: white;
+  background-color: blue;
+  padding: 12px 20px;
+  border-radius: 20px;
+  transition: 0.5s;
+  &:hover {
+    color: white;
+    background-color: black;
   }
 `;
