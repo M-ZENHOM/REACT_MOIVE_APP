@@ -12,6 +12,7 @@ import {
 import { CardContainer } from "../Styles/CardStyle";
 import styled from "styled-components";
 import CardSkelaton from "../Components/CardSkelaton";
+import { Wrapper } from "../Styles/IndexStyle";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -68,9 +69,3 @@ export const Home = () => {
     </>
   );
 };
-
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-`;

@@ -7,6 +7,7 @@ import { fetchMoives } from "../RTK/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
 import styled from "styled-components";
 import CardSkelaton from "../Components/CardSkelaton";
+import { Wrapper } from "../Styles/IndexStyle";
 
 const AllMoives = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -30,9 +31,4 @@ const AllMoives = () => {
   );
 };
 
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-`;
 export default AllMoives;

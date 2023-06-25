@@ -10,6 +10,7 @@ import {
   fetchSimilarMoives,
 } from "../RTK/slices/moiveSlice";
 import CardSkelaton from "../Components/CardSkelaton";
+import { Wrapper } from "../Styles/IndexStyle";
 
 export const Moive = () => {
   const { id } = useParams();
@@ -23,11 +24,11 @@ export const Moive = () => {
     dispatch(fetchMoiveCast(id));
   }, [dispatch, id]);
   return (
-    <>
+    <Wrapper>
       {loading && <CardSkelaton />}
       <MoiveDetails singalMoive={singalMoive} />
       <MoiveCast moiveCast={moiveCast} />
       <SimilarMoives similarMoives={similarMoives} />
-    </>
+    </Wrapper>
   );
 };

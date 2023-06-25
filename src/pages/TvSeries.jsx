@@ -6,6 +6,7 @@ import { fetchTvOnAir } from "../RTK/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
 import MoivePagination from "../Components/MoivePagination";
 import CardSkelaton from "../Components/CardSkelaton";
+import { Wrapper } from "../Styles/IndexStyle";
 
 const TvSeries = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ const TvSeries = () => {
     dispatch(fetchTvOnAir(pageNum));
   }, [dispatch, pageNum]);
   return (
-    <>
+    <Wrapper>
       <HomeHeading txt="TvSeries" btn="" />
       {loading && <CardSkelaton />}
       <CardContainer>
@@ -24,7 +25,7 @@ const TvSeries = () => {
         ))}
       </CardContainer>
       <MoivePagination setPageNum={setPageNum} />
-    </>
+    </Wrapper>
   );
 };
 

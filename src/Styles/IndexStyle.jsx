@@ -22,3 +22,9 @@ export const Btn = styled.button`
   border: none;
   color: white;
 `;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+`;
