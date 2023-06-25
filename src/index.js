@@ -5,12 +5,12 @@ import Trending from "./pages/Trending";
 import { Root } from "./Root";
 import { ErrorPage } from "./pages/ErrorPage";
 import { Provider } from "react-redux";
-import { store } from "./RTK/store";
 import { Home } from "./pages/Home";
 import { Moive } from "./pages/Moive";
 import TvSeries from "./pages/TvSeries";
 import AllMoives from "./pages/AllMoives";
 import SearchMovies from "./pages/SearchMovies";
+import { store } from "./store";
 
 const container = document.getElementById("root");
 const root = createRoot(container);

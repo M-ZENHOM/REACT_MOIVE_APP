@@ -8,9 +8,8 @@ import {
   fetchTopRated,
   fetchTrendingMoives,
   fetchTvOnAir,
-} from "../RTK/slices/moiveSlice";
+} from "../store/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
-import styled from "styled-components";
 import CardSkelaton from "../Components/CardSkelaton";
 import { Wrapper } from "../Styles/IndexStyle";
 
@@ -19,15 +18,12 @@ export const Home = () => {
   const { moives, TvSeries, TopRated, loading } = useSelector(
     (state) => state.moives
   );
-  const [isPending, startTransition] = useTransition();
   const defaultPage = 1;
   useEffect(() => {
-    startTransition(() => {
-      dispatch(fetchMoives(defaultPage));
-      dispatch(fetchTrendingMoives());
-      dispatch(fetchTvOnAir());
-      dispatch(fetchTopRated());
-    });
+    dispatch(fetchMoives(defaultPage));
+    dispatch(fetchTrendingMoives());
+    dispatch(fetchTvOnAir());
+    dispatch(fetchTopRated());
   }, [dispatch, defaultPage]);
 
   return (

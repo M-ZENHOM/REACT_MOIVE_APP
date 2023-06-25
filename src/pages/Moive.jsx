@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 import MoiveCast from "../MoiveThings/MoiveCast";
 import MoiveDetails from "../MoiveThings/MoiveDetails";
 import SimilarMoives from "../MoiveThings/SimilarMoives";
-import {
-  fetchMoivebyID,
-  fetchMoiveCast,
-  fetchSimilarMoives,
-} from "../RTK/slices/moiveSlice";
 import CardSkelaton from "../Components/CardSkelaton";
 import { Wrapper } from "../Styles/IndexStyle";
+import {
+  fetchMoiveCast,
+  fetchMoivebyID,
+  fetchSimilarMoives,
+} from "../store/slices/moiveSlice";
 
 export const Moive = () => {
   const { id } = useParams();

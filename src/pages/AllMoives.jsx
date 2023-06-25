@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import HomeHeading from "../Components/HomeHeading";
 import MovieCard from "../Components/MovieCard";
 import MoivePagination from "../Components/MoivePagination";
-import { fetchMoives } from "../RTK/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
-import styled from "styled-components";
 import CardSkelaton from "../Components/CardSkelaton";
 import { Wrapper } from "../Styles/IndexStyle";
+import { fetchMoives } from "../store/slices/moiveSlice";
 
 const AllMoives = () => {
   const [pageNum, setPageNum] = useState(1);
