@@ -15,7 +15,9 @@ import CardSkelaton from "../Components/CardSkelaton";
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { moives, TvSeries, TopRated } = useSelector((state) => state.moives);
+  const { moives, TvSeries, TopRated, loading } = useSelector(
+    (state) => state.moives
+  );
   const [isPending, startTransition] = useTransition();
   const defaultPage = 1;
   useEffect(() => {
@@ -30,42 +32,39 @@ export const Home = () => {
   return (
     <>
       <Slider moives={moives} />
-      {isPending ? (
-        <CardSkelaton />
-      ) : (
-        <Wrapper>
-          <HomeHeading
-            txt="MOVIES ON AIR  ⮞"
-            btn="View more »"
-            where="allmovies"
-          />
-          <CardContainer>
-            {moives?.slice(0, 6).map((moive) => (
-              <MovieCard key={moive.id} {...moive} />
-            ))}
-          </CardContainer>
-          <HomeHeading
-            txt="TV SERIES ON AIR  ⮞"
-            btn="View more »"
-            where="tvseries"
-          />
-          <CardContainer>
-            {TvSeries?.slice(0, 6).map((moive) => (
-              <MovieCard key={moive.id} {...moive} />
-            ))}
-          </CardContainer>
-          <HomeHeading
-            txt="TOP RATED ON AIR  ⮞"
-            btn="View more »"
-            where="allmovies"
-          />
-          <CardContainer>
-            {TopRated?.slice(0, 6).map((moive) => (
-              <MovieCard key={moive.id} {...moive} />
-            ))}
-          </CardContainer>
-        </Wrapper>
-      )}
+      {loading && <CardSkelaton />}
+      <Wrapper>
+        <HomeHeading
+          txt="MOVIES ON AIR  ⮞"
+          btn="View more »"
+          where="allmovies"
+        />
+        <CardContainer>
+          {moives?.slice(0, 6).map((moive) => (
+            <MovieCard key={moive.id} {...moive} />
+          ))}
+        </CardContainer>
+        <HomeHeading
+          txt="TV SERIES ON AIR  ⮞"
+          btn="View more »"
+          where="tvseries"
+        />
+        <CardContainer>
+          {TvSeries?.slice(0, 6).map((moive) => (
+            <MovieCard key={moive.id} {...moive} />
+          ))}
+        </CardContainer>
+        <HomeHeading
+          txt="TOP RATED ON AIR  ⮞"
+          btn="View more »"
+          where="allmovies"
+        />
+        <CardContainer>
+          {TopRated?.slice(0, 6).map((moive) => (
+            <MovieCard key={moive.id} {...moive} />
+          ))}
+        </CardContainer>
+      </Wrapper>
     </>
   );
 };

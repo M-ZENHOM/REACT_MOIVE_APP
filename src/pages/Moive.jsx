@@ -9,11 +9,12 @@ import {
   fetchMoiveCast,
   fetchSimilarMoives,
 } from "../RTK/slices/moiveSlice";
+import CardSkelaton from "../Components/CardSkelaton";
 
 export const Moive = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { singalMoive, similarMoives, moiveCast } = useSelector(
+  const { singalMoive, similarMoives, moiveCast, loading } = useSelector(
     (state) => state.moives
   );
   useEffect(() => {
@@ -23,6 +24,7 @@ export const Moive = () => {
   }, [dispatch, id]);
   return (
     <>
+      {loading && <CardSkelaton />}
       <MoiveDetails singalMoive={singalMoive} />
       <MoiveCast moiveCast={moiveCast} />
       <SimilarMoives similarMoives={similarMoives} />

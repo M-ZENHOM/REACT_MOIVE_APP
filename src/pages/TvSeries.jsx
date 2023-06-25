@@ -5,17 +5,19 @@ import MovieCard from "../Components/MovieCard";
 import { fetchTvOnAir } from "../RTK/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
 import MoivePagination from "../Components/MoivePagination";
+import CardSkelaton from "../Components/CardSkelaton";
 
 const TvSeries = () => {
   const dispatch = useDispatch();
   const [pageNum, setPageNum] = useState(1);
-  const TvSeries = useSelector((state) => state.moives.TvSeries);
+  const { TvSeries, loading } = useSelector((state) => state.moives);
   useEffect(() => {
     dispatch(fetchTvOnAir(pageNum));
   }, [dispatch, pageNum]);
   return (
     <>
       <HomeHeading txt="TvSeries" btn="" />
+      {loading && <CardSkelaton />}
       <CardContainer>
         {TvSeries.map((moive) => (
           <MovieCard key={moive.id} {...moive} />

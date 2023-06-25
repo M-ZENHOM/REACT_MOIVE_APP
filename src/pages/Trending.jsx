@@ -4,17 +4,19 @@ import { fetchTrendingMoives } from "../RTK/slices/moiveSlice";
 import MovieCard from "../Components/MovieCard";
 import { CardContainer } from "../Styles/CardStyle";
 import HomeHeading from "../Components/HomeHeading";
+import CardSkelaton from "../Components/CardSkelaton";
 const Trending = () => {
   const dispatch = useDispatch();
-  const Moives = useSelector((state) => state.moives.trendingMoives);
+  const { trendingMoives, loading } = useSelector((state) => state.moives);
   useEffect(() => {
     dispatch(fetchTrendingMoives());
   }, [dispatch]);
   return (
     <>
       <HomeHeading txt="TRENDING" btn="" />
+      {loading && <CardSkelaton />}
       <CardContainer>
-        {Moives?.map((moive) => (
+        {trendingMoives?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>

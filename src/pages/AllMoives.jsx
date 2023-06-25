@@ -6,11 +6,12 @@ import MoivePagination from "../Components/MoivePagination";
 import { fetchMoives } from "../RTK/slices/moiveSlice";
 import { CardContainer } from "../Styles/CardStyle";
 import styled from "styled-components";
+import CardSkelaton from "../Components/CardSkelaton";
 
 const AllMoives = () => {
   const [pageNum, setPageNum] = useState(1);
   const dispatch = useDispatch();
-  const Moives = useSelector((state) => state.moives.moives);
+  const { moives, loading } = useSelector((state) => state.moives);
   useEffect(() => {
     dispatch(fetchMoives(pageNum));
   }, [dispatch, pageNum]);
@@ -18,8 +19,9 @@ const AllMoives = () => {
   return (
     <Wrapper>
       <HomeHeading txt="Moives" btn="" />
+      {loading && <CardSkelaton />}
       <CardContainer>
-        {Moives?.map((moive) => (
+        {moives?.map((moive) => (
           <MovieCard key={moive.id} {...moive} />
         ))}
       </CardContainer>
