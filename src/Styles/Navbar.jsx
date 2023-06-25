@@ -1,35 +1,11 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import Form from "react-bootstrap/Form";
-
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-  @media (max-width: 768px) {
-    padding: 4px 10px;
-  }
-`;
-export const NavLogo = styled(Link)`
-  text-decoration: none;
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #fff;
-
-  &.navbar-brand:hover,
-  &.navbar-brand:focus {
-    color: #fff;
-  }
-`;
 
 export const NLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin-left: 4px;
+  margin-left: 7px;
   color: #fff;
   &:hover {
     color: #fff;
@@ -39,56 +15,61 @@ export const NLink = styled(NavLink)`
     text-decoration: underline;
   }
 `;
+export const Wrapper = styled.div`
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a42;
+  padding: 8px 0;
+  @media screen and (max-width: 768px) {
+    justify-content: center;
+    flex-direction: column;
+    padding: 14px 0;
+  }
+`;
+export const Logo = styled(Link)`
+  font-size: 24px;
+  color: #fff;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+`;
+export const Links = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    margin: 6px 0;
+  }
+`;
 
 export const SearchInput = styled.input`
-  width: 500px;
+  background-color: #fff;
   padding: 5px;
-  outline: none;
-  border-radius: 6px;
-  margin: 0 auto;
-  @media (max-width: 640px) {
-    width: 250px;
-  }
-`;
-export const SearchForm = styled(Form)`
-  width: 600px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  @media (max-width: 1200px) {
-    margin: 20px auto;
-  }
-  @media (max-width: 640px) {
-    width: 320px;
-  }
-`;
-export const ImgContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-`;
-
-export const SignOutBtn = styled.button`
-  outline: none;
+  width: 300px;
   border: none;
-  padding: 5px 10px;
-  background-color: ${(props) => props.color};
-  transition: 0.8s;
-  color: white;
+  outline: none;
+  transition: 0.5s;
   border-radius: 6px;
-  &:hover {
-    background-color: ${(props) => props.Hovercolor};
-    transition: 0.8s;
+  &:hover,
+  &:focus {
+    border: 2px solid blue;
   }
-`;
-export const UserImg = styled.img`
-  width: 50px;
-  height: 50px;
-  transition: 0.8s;
-  color: white;
-  border-radius: 50%;
-  margin-right: 20px;
-  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+    margin: 0 auto;
+  }
 `;
