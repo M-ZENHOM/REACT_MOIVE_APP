@@ -1,12 +1,4 @@
-import {
-  NavLogo,
-  NLink,
-  SearchForm,
-  SearchInput,
-  Wrapper,
-} from "../Styles/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import { NLink, SearchInput, Wrapper } from "../Styles/Navbar";
 import { useDispatch } from "react-redux";
 import { useState, useTransition } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
@@ -35,47 +27,59 @@ const AppNavbar = () => {
   };
 
   return (
-    <Navbar expand="xl" sticky="top" style={{ backgroundColor: "#1a1a42" }}>
+    <Nav>
       <Wrapper>
-        <NavLogo className="navbar-brand" to="/">
-          {siteConfig.name}
-        </NavLogo>
-        <Navbar.Toggle
-          aria-controls="navbarScroll"
-          style={{ backgroundColor: "#fff" }}
+        <Logo> {siteConfig.name}</Logo>
+        <Links>
+          {siteConfig.mainNav.map((nav) => (
+            <NLink className="nav-link" to={nav.href} disabled>
+              {nav.title}
+            </NLink>
+          ))}
+        </Links>
+        <SearchInput
+          type="text"
+          placeholder="Search Movies"
+          defaultValue={debouncedValue}
+          onChange={(e) => setValue(e.target.value)}
+          onClick={Seacrh()}
+          disabled={isPending}
         />
-        <NavContainer>
-          <Nav className=" me-auto my-2 my-lg-0" style={{ maxHeight: "100px" }}>
-            {siteConfig.mainNav.map((nav) => (
-              <NLink className="nav-link" to={nav.href} disabled>
-                {nav.title}
-              </NLink>
-            ))}
-          </Nav>
-          <SearchForm>
-            <SearchInput
-              type="text"
-              placeholder="Search Movies"
-              defaultValue={debouncedValue}
-              onChange={(e) => setValue(e.target.value)}
-              onClick={Seacrh()}
-              disabled={isPending}
-            />
-          </SearchForm>
-        </NavContainer>
       </Wrapper>
-    </Navbar>
+    </Nav>
   );
 };
 
-const NavContainer = styled.div`
+const Nav = styled.nav`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  /* @media (max-width:768px) {
-    
-  } */
+  background-color: #1a1a42;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 12px 0;
+  }
+`;
+const Logo = styled.div`
+  font-size: 24px;
+  color: #fff;
+`;
+const Links = styled.div`
+  display: flex;
+`;
+
+const SearchInput = styled.input`
+  background-color: #fff;
+  color: white;
+  padding: 5px;
+  width: 200px;
+  border: none;
+  outline: none;
+  transition: 0.5s;
+  &:hover,
+  &:focus {
+    border: 1px solid blue;
+  }
 `;
 
 export default AppNavbar;
