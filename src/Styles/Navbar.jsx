@@ -5,7 +5,7 @@ export const NLink = styled(NavLink)`
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
-  margin-left: 7px;
+  margin-left: 10px;
   color: #fff;
   &:hover {
     color: #fff;

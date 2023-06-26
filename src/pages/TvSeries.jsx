@@ -7,6 +7,7 @@ import MoivePagination from "../Components/MoivePagination";
 import CardSkelaton from "../Components/CardSkelaton";
 import { Wrapper } from "../Styles/IndexStyle";
 import { fetchTvOnAir } from "../store/slices/moiveSlice";
+import ScrollToTop from "../utils/scrollTop";
 
 const TvSeries = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const TvSeries = () => {
   return (
     <Wrapper>
       <HomeHeading txt="TvSeries" btn="" />
+      <ScrollToTop />
       {loading && <CardSkelaton />}
       <CardContainer>
         {TvSeries.map((moive) => (

@@ -7,6 +7,7 @@ import { CardContainer } from "../Styles/CardStyle";
 import CardSkelaton from "../Components/CardSkelaton";
 import { Wrapper } from "../Styles/IndexStyle";
 import { fetchMoives } from "../store/slices/moiveSlice";
+import ScrollToTop from "../utils/scrollTop";
 
 const AllMoives = () => {
   const [pageNum, setPageNum] = useState(1);
@@ -18,6 +19,7 @@ const AllMoives = () => {
 
   return (
     <Wrapper>
+      <ScrollToTop />
       <HomeHeading txt="Moives" btn="" />
       {loading && <CardSkelaton />}
       <CardContainer>
