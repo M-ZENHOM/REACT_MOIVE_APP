@@ -1,4 +1,11 @@
-import { Links, Logo, NLink, Nav, Wrapper } from "../Styles/Navbar";
+import {
+  Links,
+  Logo,
+  NLink,
+  Nav,
+  SearchInput,
+  Wrapper,
+} from "../Styles/Navbar";
 import { useDispatch } from "react-redux";
 import { useState, useTransition } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
