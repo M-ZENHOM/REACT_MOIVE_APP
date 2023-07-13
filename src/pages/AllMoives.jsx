@@ -1,33 +1,43 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import HomeHeading from "../Components/HomeHeading";
+import { useState } from "react";
+import Wrapper from "../Components/Wrapper";
 import MovieCard from "../Components/MovieCard";
-import MoivePagination from "../Components/MoivePagination";
-import { CardContainer } from "../Styles/CardStyle";
 import CardSkelaton from "../Components/CardSkelaton";
-import { Wrapper } from "../Styles/IndexStyle";
-import { fetchMoives } from "../store/slices/moiveSlice";
-import ScrollToTop from "../utils/scrollTop";
+import Pagination from "../Components/Pagination";
+import useFetch from "../hooks/useFetch";
 
 const AllMoives = () => {
-  const [pageNum, setPageNum] = useState(1);
-  const dispatch = useDispatch();
-  const { moives, loading } = useSelector((state) => state.moives);
-  useEffect(() => {
-    dispatch(fetchMoives(pageNum));
-  }, [dispatch, pageNum]);
-
+  const [page, setPage] = useState(1);
+  const { data, isLoading } = useFetch(
+    `/discover/movie?api_key=${process.env.REACT_APP_MOVIE_API_KEY}&page=${page}`
+  );
   return (
-    <Wrapper>
-      <ScrollToTop />
-      <HomeHeading txt="Moives" btn="" />
-      {loading && <CardSkelaton />}
-      <CardContainer>
-        {moives?.map((moive) => (
-          <MovieCard key={moive.id} {...moive} />
-        ))}
-      </CardContainer>
-      <MoivePagination setPageNum={setPageNum} pageNum={pageNum} />
+    <Wrapper className="py-10">
+      {!isLoading ? (
+        <>
+          <div className="flex items-center justify-between px-4">
+            <h2 className="text-2xl my-8">
+              {data?.total_results === 0
+                ? "No Movies founded!"
+                : `Found ${data?.total_results} Movies`}
+            </h2>
+            <Pagination page={page} setPage={setPage} data={data} />
+          </div>
+          <div className="grid grid-cols-fluid gap-5 px-4">
+            {data?.results.map((movie) => (
+              <MovieCard key={movie.id} {...movie} />
+            ))}
+          </div>
+        </>
+      ) : (
+        <>
+          <h2 className="text-2xl my-8">
+            <progress className="progress w-56" value="80" max="100" />
+          </h2>
+          <div className="grid grid-cols-fluid gap-5">
+            <CardSkelaton />
+          </div>
+        </>
+      )}
     </Wrapper>
   );
 };

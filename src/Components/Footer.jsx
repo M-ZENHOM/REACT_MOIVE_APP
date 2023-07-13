@@ -1,115 +1,52 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import footerImg from "../assets/imgs/footer-bg.jpg";
-import { FooterData } from "../config/FooterData";
+import { siteConfig } from "../config/site";
+import { SiTwitter, SiGithub } from "react-icons/si";
 
 const Footer = () => {
-  const { Main, Resources, Legal, Newsletter } = FooterData;
   return (
-    <FooterCon>
-      <Wrapper>
-        <Section>
-          <Title>{Main[0].title}</Title>
-          {Main[0].labels.map((l, i) => (
-            <Txt key={i}>{l}</Txt>
-          ))}
-        </Section>
-        <Section>
-          <Title>{Resources[0].title}</Title>
-          {Resources[0].labels.map((l, i) => (
-            <FootLink key={i} to="/">
-              {l}
-            </FootLink>
-          ))}
-        </Section>
-        <Section>
-          <Title>{Legal[0].title}</Title>
-          {Legal[0].labels.map((l, i) => (
-            <FootLink key={i} to="/">
-              {l}
-            </FootLink>
-          ))}
-        </Section>
-        <Section>
-          <Title>{Newsletter[0].title}</Title>
-          <Txt>{Newsletter[0].desc}</Txt>
-          <Input type="text" placeholder="Enter your email" />
-          <Btn>SUBSCRIBE NOW</Btn>
-        </Section>
-      </Wrapper>
-    </FooterCon>
+    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+      <div className="grid grid-flow-col gap-4 text-xs md:text-sm">
+        {siteConfig.mainFooter.map((f, i) => (
+          <Link key={i} to={f.href} className="link link-hover">
+            {f.title}
+          </Link>
+        ))}
+      </div>
+      <div>
+        <div className="grid grid-flow-col gap-4 text-3xl">
+          <a
+            href={siteConfig.links.twitter}
+            target="_blank"
+            rel="noreferrer"
+            className="hover:scale-125 transition-all duration-300"
+          >
+            <SiTwitter />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            className="hover:scale-125 transition-all duration-300"
+            href={siteConfig.links.github}
+          >
+            <SiGithub />
+          </a>
+        </div>
+      </div>
+      <div>
+        <p className="w-full max-w-lg">
+          {siteConfig.copyrights.desc}{" "}
+          <a
+            className="border-b border-[#ffffff34] hover:text-white hover:border-white"
+            target="_blank"
+            rel="noreferrer"
+            href={siteConfig.copyrights.href}
+          >
+            {siteConfig.copyrights.name}
+          </a>
+        </p>
+      </div>
+    </footer>
   );
 };
-const Wrapper = styled.div`
-  width: 100%;
-  max-width: 1360px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-`;
-const FooterCon = styled.footer`
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  background-image: url(${footerImg});
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 400px;
-  height: fit-content;
-  margin-top: 50px;
-  padding: 30px;
-  @media (max-width: 640px) {
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-  }
-`;
-
-const Section = styled.div`
-  display: flex;
-  align-items: start;
-  flex-direction: column;
-  justify-content: center;
-  @media (max-width: 640px) {
-    margin-bottom: 50px;
-  }
-`;
-
-const Txt = styled.p`
-  font-size: 16px;
-  color: #abb7c4;
-  margin-bottom: 10px;
-`;
-
-const Title = styled.h3`
-  color: #fff;
-  margin-bottom: 10px;
-`;
-const FootLink = styled(Link)`
-  color: #abb7c4;
-`;
-const Input = styled.input`
-  outline: none;
-  border: none;
-  width: 48 0px;
-  padding: 10px;
-  margin-bottom: 20px;
-  background: none;
-  border: 1px solid #abb7c4;
-  @media (max-width: 640px) {
-    width: auto;
-  }
-`;
-const Btn = styled.button`
-  cursor: pointer;
-  color: red;
-  background: none;
-  border: none;
-  font-size: 16px;
-  margin-left: 5px;
-`;
 
 export default Footer;

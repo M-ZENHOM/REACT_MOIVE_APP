@@ -1,34 +1,37 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import MoiveCast from "../MoiveThings/MoiveCast";
-import MoiveDetails from "../MoiveThings/MoiveDetails";
-import SimilarMoives from "../MoiveThings/SimilarMoives";
-import CardSkelaton from "../Components/CardSkelaton";
-import { Wrapper } from "../Styles/IndexStyle";
-import {
-  fetchMoiveCast,
-  fetchMoivebyID,
-  fetchSimilarMoives,
-} from "../store/slices/moiveSlice";
+import useFetch from "../hooks/useFetch";
+import Wrapper from "../Components/Wrapper";
+import Details from "../Components/Movie/Details";
+import Casts from "../Components/Movie/Casts";
+import Similar from "../Components/Movie/Similar";
+import Recommendations from "../Components/Movie/Recommendations";
 
 export const Moive = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const { singalMoive, similarMoives, moiveCast, loading } = useSelector(
-    (state) => state.moives
+  const { mediaType, id } = useParams();
+  const { data, isLoading } = useFetch(
+    `/${mediaType}/${id}?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
   );
-  useEffect(() => {
-    dispatch(fetchMoivebyID(id));
-    dispatch(fetchSimilarMoives(id));
-    dispatch(fetchMoiveCast(id));
-  }, [dispatch, id]);
+  const { data: credits, isLoading: creditsLoading } = useFetch(
+    `/${mediaType}/${id}/credits?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
+  );
   return (
-    <Wrapper>
-      {loading && <CardSkelaton />}
-      <MoiveDetails singalMoive={singalMoive} />
-      <MoiveCast moiveCast={moiveCast} />
-      <SimilarMoives similarMoives={similarMoives} />
-    </Wrapper>
+    <div
+      className="hero w-full min-h-[100vh] place-items-start "
+      style={{
+        backgroundImage: `${`url(${process.env.REACT_APP_BG_IMG}${data?.backdrop_path})`}`,
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+        backgroundAttachment: "fixed",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
+      <div className="hero-overlay bg-base-300 bg-opacity-80" />
+      <Wrapper>
+        <Details data={data} isLoading={isLoading} credits={credits} />
+        <Casts credits={credits} creditsLoading={creditsLoading} />
+        <Similar id={id} mediaType={mediaType} />
+        <Recommendations id={id} mediaType={mediaType} />
+      </Wrapper>
+    </div>
   );
 };

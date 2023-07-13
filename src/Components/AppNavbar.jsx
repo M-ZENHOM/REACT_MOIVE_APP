@@ -1,58 +1,74 @@
-import {
-  Links,
-  Logo,
-  NLink,
-  Nav,
-  SearchInput,
-  Wrapper,
-} from "../Styles/Navbar";
-import { useDispatch } from "react-redux";
 import { useState, useTransition } from "react";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDebounce } from "../hooks/use-debounce";
 import { siteConfig } from "../config/site";
-import { fetchSearch } from "../store/slices/moiveSlice";
+import Wrapper from "./Wrapper";
 
 const AppNavbar = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [value, setValue] = useState("");
-  const debouncedValue = useDebounce(value, 500);
+  const [query, setQuery] = useState("");
+  const debouncedQuery = useDebounce(query, 500);
   const [isPending, startTransition] = useTransition();
   const Seacrh = () => {
-    if (debouncedValue !== "") {
+    if (debouncedQuery.length > 0) {
       startTransition(() => {
-        dispatch(fetchSearch(debouncedValue));
-        setValue("");
-        navigate({
-          pathname: "/search",
-          search: `?${createSearchParams(debouncedValue)}`,
-        });
+        navigate(`/search/${debouncedQuery}`);
+        setQuery("");
       });
+    }
+  };
+  const searchWithEnter = (e) => {
+    if (e.key === "Enter" && debouncedQuery.length > 0) {
+      Seacrh();
     }
   };
 
   return (
-    <Nav>
-      <Wrapper>
-        <Logo to="/"> {siteConfig.name}</Logo>
-        <Links>
-          {siteConfig.mainNav.map((nav) => (
-            <NLink className="nav-link" to={nav.href} disabled>
-              {nav.title}
-            </NLink>
-          ))}
-        </Links>
-        <SearchInput
-          type="text"
-          placeholder="Search Movies"
-          defaultValue={debouncedValue}
-          onChange={(e) => setValue(e.target.value)}
-          onClick={Seacrh()}
-          disabled={isPending}
-        />
+    <div className="navbar bg-base-100 sticky top-0 z-[5000]">
+      <Wrapper className="flex flex-col md:flex-row space-y-2">
+        <div className="flex-1 flex items-center">
+          <Link to="/" className="btn btn-ghost normal-case text-xl">
+            {siteConfig.name}
+          </Link>
+          <div className="flex-none">
+            <ul className="menu menu-horizontal px-1">
+              <li>
+                <details>
+                  <summary>Menu</summary>
+                  <ul className="p-2 bg-base-100">
+                    {siteConfig.mainNav.map((s, i) => (
+                      <li key={i}>
+                        <NavLink to={s.href}>{s.title}</NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex-none gap-2">
+          <div className="flex flex-row space-x-2">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered w-full max-w-sm"
+              disabled={isPending}
+              onKeyDown={searchWithEnter}
+              defaultValue={debouncedQuery}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button
+              onClick={() => Seacrh()}
+              disabled={isPending}
+              className="btn"
+            >
+              Search
+            </button>
+          </div>
+        </div>
       </Wrapper>
-    </Nav>
+    </div>
   );
 };
 

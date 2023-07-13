@@ -1,16 +1,13 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Trending from "./pages/Trending";
 import { Root } from "./Root";
 import { ErrorPage } from "./pages/ErrorPage";
-import { Provider } from "react-redux";
 import { Home } from "./pages/Home";
 import { Moive } from "./pages/Moive";
 import TvSeries from "./pages/TvSeries";
 import AllMoives from "./pages/AllMoives";
 import SearchMovies from "./pages/SearchMovies";
-import { store } from "./store";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
@@ -38,11 +35,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "trending",
-        element: <Trending />,
-      },
-      {
-        path: "moive/:id",
+        path: "/:mediaType/:id",
         element: <Moive />,
         loader: ParamHandler,
       },
@@ -55,14 +48,10 @@ const router = createBrowserRouter([
         element: <AllMoives />,
       },
       {
-        path: "search",
+        path: "/search/:query",
         element: <SearchMovies />,
       },
     ],
   },
 ]);
-root.render(
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>
-);
+root.render(<RouterProvider router={router} />);

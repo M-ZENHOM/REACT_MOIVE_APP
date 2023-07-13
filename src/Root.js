@@ -1,21 +1,17 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import AppNavbar from "./Components/AppNavbar";
-import Copyrights from "./Components/Copyrights";
 import Footer from "./Components/Footer";
-import GlobalStyles from "./GlobalStyles";
-import "bootstrap/dist/css/bootstrap.min.css";
-import ScrollToTop from "./utils/scrollTop";
+import "./Styles/index.css";
+import ScrollToTop from "./lib/ScrollToTop";
 
 export const Root = () => {
   return (
     <>
-      <ScrollToTop />
-      <GlobalStyles />
       <AppNavbar />
+      <ScrollToTop />
       <Outlet />
       <Footer />
-      <Copyrights />
     </>
   );
 };
