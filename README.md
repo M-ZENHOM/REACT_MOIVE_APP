@@ -1,11 +1,47 @@
-﻿# - 📌 REACT MOVIES APP
+﻿# [React Movies](https://react-moive-app-delta.vercel.app/)
 
-A Simple Movie Application using React JS with moives api.
+This is an open source movies website for all movies, tvshows details, casts, and releasedate build with `React.js`.
 
-# - Demo Link 🎊:
+[![React Movies](./src/assets/landing-page-screenshot.png)](https://react-moive-app-delta.vercel.app/)
 
-<a href="https://react-moive-app-delta.vercel.app/">App Live</a>
+## Tech Stack
 
-# - Some Imgs
+- [React.js](https://nextjs.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [React-Router-Dom](https://reactrouter.com/)
+- [SWR](https://swr.vercel.app/)
 
-<a href='https://postimg.cc/fSjjtBp9' target='_blank'><img src='https://i.postimg.cc/hGqjR5n2/6e-L0cks-O3s.jpg' border='0' alt='msedge-VFQv4dk-Wn-U'/></a>
+## Features to be implemented
+
+- [x] Search with **Name**
+- [x] Filter with **TvShows/Movie - Week/Day**
+- [x] Pagination
+- [x] Movie Details,Casts,Similar,Recommendations.
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/M-ZENHOM/REACT_MOIVE_APP
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Create a `.env` file
+
+Create a `.env` file in the root directory and add the environment variables as shown in the `.env.example` file.
+
+### 4. Run the application
+
+```bash
+npm run dev
+```
+
+## How do I deploy this?
+
+Follow the deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
