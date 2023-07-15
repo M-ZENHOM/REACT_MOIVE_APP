@@ -1,9 +1,8 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 
 const Hero = () => {
-  const { mediaType, id } = useParams();
   const { data, isLoading } = useFetch(
     `/trending/movie/day?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
   );
@@ -24,7 +23,7 @@ const Hero = () => {
                 <div className="max-w-lg">
                   <h1 className="mb-5 text-4xl font-bold">{movie.title}</h1>
                   <p className="mb-5">{movie.overview}</p>
-                  <Link to={`/${mediaType}/${id}`} className="btn btn-primary">
+                  <Link to={`/movie/${movie.id}`} className="btn btn-primary">
                     Read more
                   </Link>
                 </div>
