@@ -5,6 +5,7 @@ import useFetch from "../hooks/useFetch";
 import { useParams } from "react-router-dom";
 import CardSkelaton from "../Components/CardSkelaton";
 import Pagination from "../Components/Pagination";
+import SEO from "../Components/SEO";
 
 const SearchMovies = () => {
   const { query } = useParams();
@@ -15,6 +16,7 @@ const SearchMovies = () => {
 
   return (
     <Wrapper className="py-10">
+      <SEO title="React Movies - Search" />
       {!isLoading ? (
         <>
           <div className="flex items-center justify-between px-4">

@@ -5,6 +5,7 @@ import Details from "../Components/Movie/Details";
 import Casts from "../Components/Movie/Casts";
 import Similar from "../Components/Movie/Similar";
 import Recommendations from "../Components/Movie/Recommendations";
+import SEO from "../Components/SEO";
 
 export const Moive = () => {
   const { mediaType, id } = useParams();
@@ -25,6 +26,7 @@ export const Moive = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
+      <SEO title="React Movies - Details" />
       <div className="hero-overlay bg-base-300 bg-opacity-80" />
       <Wrapper>
         <Details data={data} isLoading={isLoading} credits={credits} />

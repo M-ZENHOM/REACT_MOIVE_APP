@@ -4,6 +4,7 @@ import Wrapper from "../Components/Wrapper";
 import MovieCard from "../Components/MovieCard";
 import CardSkelaton from "../Components/CardSkelaton";
 import Pagination from "../Components/Pagination";
+import SEO from "../Components/SEO";
 
 const TvSeries = () => {
   const [page, setPage] = useState(1);
@@ -12,6 +13,7 @@ const TvSeries = () => {
   );
   return (
     <Wrapper className="py-10">
+      <SEO title="React Movies - TvShows" />
       {!isLoading ? (
         <>
           <div className="flex items-center justify-between px-4">
