@@ -9,6 +9,7 @@ This is an open source movies website for all movies, tvshows details, casts, an
 - [React.js](https://nextjs.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [React-Router-Dom](https://reactrouter.com/)
+- [React-Helmet](https://www.npmjs.com/package/react-helmet-async)
 - [SWR](https://swr.vercel.app/)
 
 ## Features to be implemented
