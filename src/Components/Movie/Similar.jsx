@@ -9,7 +9,7 @@ const Similar = ({ id, mediaType }) => {
   );
   return (
     <>
-      <h2 className="font-bold text-3xl px-4 mb-5">Similar Movies</h2>
+      <h2 className="font-bold text-2xl mb-5">Similar Movies</h2>
       {!isLoading ? (
         <div className="grid grid-cols-fluid gap-12 mx-auto place-content-center place-items-center py-5">
           {data.results?.slice(0, 4).map((movie) => (

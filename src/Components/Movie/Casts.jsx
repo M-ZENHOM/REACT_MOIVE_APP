@@ -23,7 +23,7 @@ export const responsive = {
 const Casts = ({ credits, creditsLoading }) => {
   return (
     <div className="w-full max-w-xs mx-auto md:max-w-[700px] lg:max-w-[1360px]">
-      <h2 className="font-bold text-3xl px-4 mb-5">Top Cast</h2>
+      <h2 className="font-bold text-2xl  mb-5">Top Cast</h2>
       {!creditsLoading ? (
         <Carousel responsive={responsive} keyBoardControl={true}>
           {credits?.cast.map((c) => (

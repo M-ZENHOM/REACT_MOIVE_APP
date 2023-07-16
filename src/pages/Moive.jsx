@@ -6,6 +6,7 @@ import Casts from "../Components/Movie/Casts";
 import Similar from "../Components/Movie/Similar";
 import Recommendations from "../Components/Movie/Recommendations";
 import SEO from "../Components/SEO";
+import Videos from "../Components/Movie/Videos";
 
 export const Moive = () => {
   const { mediaType, id } = useParams();
@@ -14,6 +15,9 @@ export const Moive = () => {
   );
   const { data: credits, isLoading: creditsLoading } = useFetch(
     `/${mediaType}/${id}/credits?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
+  );
+  const { data: videos, isLoading: videosLoading } = useFetch(
+    `/${mediaType}/${id}/videos?api_key=${process.env.REACT_APP_MOVIE_API_KEY}`
   );
   return (
     <div
@@ -31,6 +35,7 @@ export const Moive = () => {
       <Wrapper>
         <Details data={data} isLoading={isLoading} credits={credits} />
         <Casts credits={credits} creditsLoading={creditsLoading} />
+        <Videos videos={videos} isLoading={videosLoading} />
         <Similar id={id} mediaType={mediaType} />
         <Recommendations id={id} mediaType={mediaType} />
       </Wrapper>
