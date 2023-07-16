@@ -1,5 +1,6 @@
-﻿# [React Movies](https://react-moive-app-delta.vercel.app/)
+﻿# [React Movies]
 
+- Regrettably, the project remains undeployed, and your access is limited solely to examining the code.
 This is an open source movies website for all movies, tvshows details, casts, and releasedate build with `React.js`.
 
 [![React Movies](./src/assets/landing-page-screenshot.png)](https://react-moive-app-delta.vercel.app/)
